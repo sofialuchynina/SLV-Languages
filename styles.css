@@ -1394,7 +1394,7 @@ nav ul li a:hover::after {
 
     .reset-btn {
         flex: 0 0 auto;
-        align-self: flex-end;
+        align-self: flex-start;
         min-height: 40px;
     }
 }
