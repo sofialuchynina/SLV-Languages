@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пройдені курси - SLV English</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="progress-header">
+        <a href="index.html"><img src="https://cdn.sanriowiki.com/2/23/Cinnamoroll.png" alt="Cinnamoroll"></a>
+        <nav>
+            <ul>
+                <li><a href="classes.html">Уроки</a></li>
+                <li><a href="myprogress.html">Мій прогрес</a></li>
+                <li><a href="practice.html">Практика</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <a href="myprogress.html" class="back-link">← Назад до прогресу</a>
+        <h2 class="page-title"> Пройдені курси</h2>
+        <p class="page-subtitle" id="subtitle">Завантаження...</p>
+
+        <div id="completed-grid" class="completed-page-grid"></div>
+
+        <div id="empty-state" class="empty-state" style="display:none;">
+            <span class="emoji"></span>
+            <p>У вас поки немає пройдених курсів</p>
+            <a href="classes.html">Перейти до уроків</a>
+        </div>
+    </main>
+
+    <div id="toast"></div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>SLV Languages</h3>
+                <p>Курси іноземних мов онлайн та офлайн у Львові</p>
+            </div>
+            <div class="footer-center">
+                <p>вул. Ірини Калинець, 9</p>
+                <p>+38 (096) 797 8991</p>
+                <p>✉ info@slv.com</p>
+            </div>
+            <div class="footer-right">
+                <p>© 2026 SLV</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="animation.js"></script>
+    <script>
+        var ALL_LESSONS = [
+            { id: 1, title: "Beginner (A0)",          level: "A0", lang: "Англійська" },
+            { id: 2, title: "Elementary (A1)",         level: "A1", lang: "Англійська" },
+            { id: 3, title: "Pre-Intermediate (A2)",   level: "A2", lang: "Англійська" },
+            { id: 4, title: "Intermediate (B1)",       level: "B1", lang: "Англійська" },
+            { id: 5, title: "Upper-Intermediate (B2)", level: "B2", lang: "Англійська" },
+            { id: 6, title: "Advanced (C1)",           level: "C1", lang: "Англійська" },
+            { id: 7, title: "Débutant (A1)",           level: "A1", lang: "Французька" },
+            { id: 8, title: "Élémentaire (A2)",        level: "A2", lang: "Французька" },
+            { id: 9, title: "Intermédiaire (B1)",      level: "B1", lang: "Французька" },
+        ];
+
+        function showToast(msg) {
+            var t = document.getElementById('toast');
+            t.textContent = msg;
+            t.style.display = 'block';
+            setTimeout(function() { t.style.display = 'none'; }, 2500);
+        }
+
+        function uncomplete(id) {
+            var saved = localStorage.getItem('completedLessons');
+            var completedIds = saved ? JSON.parse(saved) : [];
+            completedIds = completedIds.filter(function(x) { return x !== id; });
+            localStorage.setItem('completedLessons', JSON.stringify(completedIds));
+            renderPage();
+            showToast('Курс скасовано як пройдений');
+        }
+
+        function renderPage() {
+            var saved = localStorage.getItem('completedLessons');
+            var completedIds = saved ? JSON.parse(saved) : [];
+            var grid = document.getElementById('completed-grid');
+            var emptyState = document.getElementById('empty-state');
+            var subtitle = document.getElementById('subtitle');
+
+            if (completedIds.length === 0) {
+                grid.innerHTML = '';
+                emptyState.style.display = 'block';
+                subtitle.textContent = 'Тут відображатимуться курси, які ви відзначили як пройдені';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            subtitle.textContent = 'Пройдено ' + completedIds.length + ' курс(ів)';
+
+            var html = '';
+            for (var i = 0; i < completedIds.length; i++) {
+                var id = completedIds[i];
+                var lesson = null;
+                for (var j = 0; j < ALL_LESSONS.length; j++) {
+                    if (ALL_LESSONS[j].id === id) { lesson = ALL_LESSONS[j]; break; }
+                }
+                if (!lesson) continue;
+                html += '<div class="completed-course-card" style="transition-delay:' + (i * 0.08) + 's">' +
+                    '<span class="checkmark">💟</span>' +
+                    '<div class="badge">' + lesson.level + '</div>' +
+                    '<h3>' + lesson.title + '</h3>' +
+                    '<p class="lang-tag"> ' + lesson.lang + '</p>' +
+                    '<button class="cancel-btn" onclick="uncomplete(' + lesson.id + ')">✕ Скасувати як пройдений</button>' +
+                    '</div>';
+            }
+            grid.innerHTML = html;
+
+            setTimeout(function() {
+                var cards = document.querySelectorAll('.completed-course-card');
+                for (var k = 0; k < cards.length; k++) {
+                    cards[k].classList.add('show');
+                }
+            }, 50);
+        }
+
+        document.addEventListener('DOMContentLoaded', renderPage);
+    </script>
+</body>
+</html>

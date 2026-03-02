@@ -321,6 +321,29 @@ footer {
     }
 }
 
+.end-btn {
+    background: #ff3b7d;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.end-btn:hover{
+    background: #504b4d;
+    color: #000000;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 122, 172, 0.4);
+}
+
 .material-popup summary {
     padding: 10px;
     cursor: pointer;
@@ -357,7 +380,7 @@ footer {
 .lesson-card.show {
     opacity: 1;
     transform: translateY(0);
-    animation: shine 2s ease-in-out 0.5s; /* Блиск після появи */
+    animation: shine 2s ease-in-out 0.5s;
 }
 
 .lesson-card:hover::after {
@@ -395,7 +418,6 @@ details[open] .popup-inner {
     font-weight: bold;
 }
 
-
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-10px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -426,6 +448,7 @@ details[open] .popup-inner {
     opacity: 1;
     transform: scale(1);
 }
+
 .progress-bar {
     background: #eee;
     border-radius: 10px;
@@ -548,6 +571,450 @@ details[open] .popup-inner {
     gap: 8px;
     cursor: pointer;
     font-size: 1.1rem;
+}
+
+.advantages li {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advantages li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background-color: #fff0fb; 
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+nav ul li a {
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff0faf; 
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.filter-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff5f8;
+    border-radius: 15px;
+    border: 2px solid #ffc4e5;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 0 1 auto;  
+    min-width: 150px;
+    max-width: 250px;  
+}
+
+.filter-item label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.95rem;  
+    color: #ff7aac;
+    font-weight: bold;
+    white-space: nowrap;  
+}
+
+.filter-item input,
+.filter-item select {
+    padding: 10px 12px;
+    border: 2px solid #ffc4e5;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.95rem;  
+    background: white;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.filter-item input:focus,
+.filter-item select:focus {
+    outline: none;
+    border-color: #ff7aac;
+    box-shadow: 0 0 10px rgba(255, 122, 172, 0.3);
+}
+
+.reset-btn {
+    height: 50px;
+    width: 200px;
+    align-self: center;
+    background: #ff7aac;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.reset-btn:hover {
+    background: #ed2170;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 122, 172, 0.4);
+}
+
+.reset-btn:active {
+    transform: translateY(0);
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2rem;
+    color: #ff7aac;
+    display: none;
+}
+
+.no-results.show {
+    display: block;
+}
+
+.lesson-card.completed {
+    margin-top: -5px;
+    height:430px;
+    background: linear-gradient(135deg, #f2e8f5 0%, #d5c8e6 100%);
+    border-color: #000000;
+    box-shadow: 8px 8px 0px #5e0186; 
+    opacity: 0,8;
+    transform: translateY(5px);
+    cursor: pointer;
+    position: relative;
+}
+
+
+.lesson-card.completed:hover {
+    transform: translateY(5px);
+    box-shadow: 12px 12px 0px #9400D3, 0 15px 30px rgba(148, 0, 211, 0.3); 
+    border-color: #9400D3; 
+}
+
+.lesson-card.completed .price{
+    margin-top: 70px;
+    color: #9400D3;
+}
+
+.lesson-card.completed .start-btn{
+    color: #9400D3;
+}
+
+.lesson-card.completed .start-btn{
+    background: #9400D3;
+    color: #fff;
+}
+
+.lesson-card.completed .material-popup summary{
+    background: #9400D3;
+    color: #fff;
+}
+
+.start-btn.started {
+    animation: none !important;
+    box-shadow: none !important;
+}
+
+.start-btn.started:hover {
+    animation: none !important;
+    box-shadow: 0 0 5px #ffc0cb, 0 0 10px #ffc0cb, 0 0 15px #ffc0cb !important;
+}
+
+.start-btn.started::before {
+    display: none;
+}
+
+.lesson-card.completed h3{
+    color: #9400D3;
+}
+
+.lesson-card.completed .badge {
+    background: #9400D3;
+    color: white;
+}
+
+.lesson-card.completed::before {
+    content: '💟';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+}
+
+#study-timer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff7aac;
+    text-align: center;
+    padding: 15px;
+    background: #fff5f8;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.progress-section {
+    margin-bottom: 40px;
+}
+
+.level-header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 6px;
+}
+
+.completed-list {
+    margin-top: 30px;
+}
+
+.completed-list h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ff7aac;
+    margin-bottom: 15px;
+}
+
+.completed-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.completed-chip {
+    background: #ff7aac;
+    color: black;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.empty-msg {
+    color: #aaa;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.view-completed-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 32px;
+    background: #ff7aac;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.view-completed-btn:hover {
+    background: #ed2170;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 122, 172, 0.4);
+}
+
+.timer-card {
+    background: #fff5f8;
+    border: 3px solid #ffc4e5;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.timer-card h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.completed-page-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.completed-course-card {
+    background: linear-gradient(135deg, #f1e8f5 0%, #dec8e6 100%);
+    border: 3px solid #9400D3;
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 6px 6px 0px #9400D3;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.completed-course-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.completed-course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 0px #9400D3;
+}
+
+.completed-course-card .badge {
+    background: #9400D3;
+    color: white;
+}
+
+.completed-course-card h3 {
+    color: rgb(150, 30, 150);
+    margin: 10px 0 6px;
+    font-size: 1.2rem;
+}
+
+.completed-course-card .lang-tag {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.completed-course-card .checkmark {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 2rem;
+}
+
+.cancel-btn {
+    background: #fff;
+    color: #9400D3;
+    border: 2px solid #9400D3;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.9rem;
+    margin-top: 12px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.cancel-btn:hover {
+    background: #9400D3;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(229, 57, 53, 0.3);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.empty-state .emoji {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.empty-state p {
+    font-size: 1.3rem;
+    color: #ff7aac;
+    margin-bottom: 20px;
+}
+
+.empty-state a {
+    display: inline-block;
+    padding: 14px 30px;
+    background: #000;
+    color: #ff7aac;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.empty-state a:hover {
+    background: #ff7aac;
+    color: #000;
+}
+
+.page-title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.page-subtitle {
+    color: #888;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #ff7aac;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #ed2170;
+}
+
+#toast {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    z-index: 999;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
@@ -732,6 +1199,11 @@ details[open] .popup-inner {
     .start-btn:hover {
         animation: none;
     }
+
+    .completed-page-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -790,7 +1262,6 @@ details[open] .popup-inner {
         padding: 0 10px;
     }
 
-    /* кнопки вертикально, однакова довжина*/
     .classes-header nav,
     .progress-header nav,
     .practice-header nav {
@@ -884,41 +1355,13 @@ details[open] .popup-inner {
     .start-btn:hover {
         animation: none;
     }
-}
 
-.advantages li {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .completed-page-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-.advantages li:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    background-color: #fff0fb; 
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-}
-
-nav ul li a {
-    position: relative;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #ff0faf; 
-    transition: width 0.3s ease;
-}
-
-nav ul li a:hover::after {
-    width: 100%;
+    .completed-badge-row {
+        flex-direction: column;
+    }
 }

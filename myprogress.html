@@ -19,37 +19,147 @@
     </header>
 
     <main class="container">
+
+        <div class="timer-card">
+            <h3>Час навчання сьогодні</h3>
+            <div id="study-timer">0 сек</div>
+        </div>
+
         <section class="progress-section">
             <h2 class="level-header">Ваш профіль студента</h2>
-            
+
             <div class="progress-card">
-                <h3>Поточний рівень: <span class="highlight-text">Elementary (A1-A2)</span></h3>
-                <p>Ви успішно завершили "Старт для початківців" та вивчаєте базову граматику.</p>
-                
+                <h3>Поточний рівень: <span class="highlight-text" id="current-level">—</span></h3>
+                <p id="completed-text">Ви ще не завершили жодного курсу. Починайте навчання!</p>
+
                 <div class="progress-box">
                     <div class="label-row">
                         <span>Загальний прогрес</span>
-                        <span>40%</span>
+                        <span id="progress-percent">0%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 40%;"></div>
+                        <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
                     </div>
                 </div>
 
                 <div class="stats-row">
                     <div class="stat-bubble">
-                        <span class="stat-num">12</span>
+                        <span class="stat-num" id="completed-count">0</span>
                         <span>Уроків пройдено</span>
                     </div>
                     <div class="stat-bubble">
-                        <span class="stat-num">5</span>
-                        <span>Курсів розпочато</span>
+                        <span class="stat-num" id="total-count">9</span>
+                        <span>Всього курсів</span>
                     </div>
                 </div>
+
+                <div class="completed-list">
+                    <h3>Пройдені курси:</h3>
+                    <div class="completed-badge-row" id="completed-chips">
+                        <span class="empty-msg">Ще немає пройдених курсів</span>
+                    </div>
+                </div>
+
+                <a href="completed.html" class="view-completed-btn"> Переглянути пройдені курси</a>
+                
+                <button onclick="resetStartedLessons()" class="view-completed-btn" style="background:#610126; margin-left:580px;">
+                    Скинути розпочаті курси
+                </button>
+                
             </div>
         </section>
     </main>
-    
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>SLV Languages</h3>
+                <p>Курси іноземних мов онлайн та офлайн у Львові</p>
+            </div>
+            <div class="footer-center">
+                <p>вул. Ірини Калинець, 9</p>
+                <p>+38 (096) 797 8991</p>
+                <p>✉ info@slv.com</p>
+            </div>
+            <div class="footer-right">
+                <p>© 2026 SLV</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="animation.js"></script>
+    <script src="comands.js"></script>
+    <script>
+        const ALL_LESSONS = [
+            { id: 1, title: "Beginner",          level: "A0" },
+            { id: 2, title: "Elementary",         level: "A1" },
+            { id: 3, title: "Pre-Intermediate",   level: "A2" },
+            { id: 4, title: "Intermediate",       level: "B1" },
+            { id: 5, title: "Upper-Intermediate", level: "B2" },
+            { id: 6, title: "Advanced",           level: "C1" },
+            { id: 7, title: "Débutant",           level: "A1" },
+            { id: 8, title: "Élémentaire",        level: "A2" },
+            { id: 9, title: "Intermédiaire",      level: "B1" },
+        ];
+
+        const LEVEL_ORDER = ["A0","A1","A2","B1","B2","C1"];
+
+        function getHighestLesson(completedIds) {
+            var best = null;
+            var bestIdx = -1;
+            for (var i = 0; i < completedIds.length; i++) {
+                var id = completedIds[i];
+                var lesson = null;
+                for (var j = 0; j < ALL_LESSONS.length; j++) {
+                    if (ALL_LESSONS[j].id === id) { lesson = ALL_LESSONS[j]; break; }
+                }
+                if (!lesson) continue;
+                var idx = LEVEL_ORDER.indexOf(lesson.level);
+                if (idx > bestIdx) { bestIdx = idx; best = lesson; }
+            }
+            return best;
+        }
+
+        function renderProgress() {
+            var saved = localStorage.getItem('completedLessons');
+            var completedIds = saved ? JSON.parse(saved) : [];
+            var count = completedIds.length;
+            var total = ALL_LESSONS.length;
+            var percent = Math.round((count / total) * 100);
+
+            document.getElementById('completed-count').textContent = count;
+            document.getElementById('total-count').textContent = total;
+            document.getElementById('progress-percent').textContent = percent + '%';
+            document.getElementById('progress-fill').style.width = percent + '%';
+
+            var highestLesson = getHighestLesson(completedIds);
+
+            if (highestLesson) {
+                document.getElementById('current-level').textContent = highestLesson.level;
+                document.getElementById('completed-text').textContent =
+                    'Ви успішно завершили курс "' + highestLesson.title + '". Продовжуйте навчання!';
+            } else {
+                document.getElementById('current-level').textContent = '—';
+                document.getElementById('completed-text').textContent =
+                    'Ви ще не завершили жодного курсу. Починайте навчання!';
+            }
+
+            var chipsEl = document.getElementById('completed-chips');
+            if (completedIds.length === 0) {
+                chipsEl.innerHTML = '<span class="empty-msg">Ще немає пройдених курсів</span>';
+            } else {
+                var html = '';
+                for (var k = 0; k < completedIds.length; k++) {
+                    var l = null;
+                    for (var m = 0; m < ALL_LESSONS.length; m++) {
+                        if (ALL_LESSONS[m].id === completedIds[k]) { l = ALL_LESSONS[m]; break; }
+                    }
+                    if (l) html += '<span class="completed-chip">' + l.level + ' — ' + l.title + '</span>';
+                }
+                chipsEl.innerHTML = html;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', renderProgress);
+    </script>
 </body>
 </html>

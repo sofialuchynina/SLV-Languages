@@ -20,165 +20,49 @@
 
     <main class="container">
         <section class="practice-section">
-        <h2>Курси англійської</h2>
-        <div class="lessons-grid">
-            
-            <article class="lesson-card">
-                <div class="badge">A0</div>
-                <h3>Beginner (A0)</h3>
-                <p>Старт для тих, хто тільки починає знайомство з англійською</p>
-                <p class="price">Ціна: 150 грн</p>
-                <button class="start-btn">Почати курс</button>
-                <details class="material-popup">
-                    <summary>Переглянути матеріали</summary>
-                    <div class="popup-inner">
-                        <div class="media-block">
-                            <h4>🎬 Відео</h4>
-                            <video controls><source src="Download.mp4" type="video/mp4"></video>
-                        </div>
-                        <div class="media-block">
-                            <h4>🎧 Аудіо</h4>
-                            <audio controls><source src="OMFG - hello_(play.muzfan.net).mp3" type="audio/mpeg"></audio>
-                        </div>
-                        <div class="media-block">
-                            <h4>📄 Текст</h4>
-                            <a href="Лабораторна робота №1.pdf" download="лабораторна робота  №1.pdf">Завантажити файл</a>
-                        </div>
-                    </div>
-                </details>
-            </article>
 
-            <article class="lesson-card">
-                <div class="badge">A1</div>
-                <h3>Elementary (A1)</h3>
-                <p>Допоможе закласти фундамент для подальшого навчання</p>
-                <p class="price">Ціна: 250 грн</p>
-                <button class="start-btn">Почати курс</button>
-                <details class="material-popup">
-                    <summary>Переглянути матеріали</summary>
-                    <div class="popup-inner">
-                        <div class="media-block"><h4>🎬 Відео</h4><video controls src="a1-v.mp4"></video></div>
-                        <div class="media-block"><h4>🎧 Аудіо</h4><audio controls src="a1-a.mp3"></audio></div>
-                        <div class="media-block"><h4>📄 Текст</h4><p>Граматика: To Be, Present Simple.</p></div>
-                    </div>
-                </details>
-            </article>
+            <div class="filter-section">
+                <div class="filter-item">
+                    <label for="search">Пошук</label>
+                    <input type="text" id="search" placeholder="Введіть назву курсу">
+                </div>
+                <div class="filter-item">
+                    <label for="SortPrice">Сортування за ціною</label>
+                    <select id="SortPrice">
+                        <option value="Без">Без сортувань</option>
+                        <option value="менше<більше">Від дешевого до дорогого</option>
+                        <option value="більше>менше">Від дорогого до дешевого</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="SortBadge">Рівень</label>
+                    <select id="SortBadge">
+                        <option value="">Всі рівні</option>
+                        <option value="A0">A0</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                        <option value="C1">C1</option>
+                    </select>
+                </div>
+                <button id="resetBtn" class="reset-btn">Скинути фільтри</button>
+            </div>
 
-            <article class="lesson-card">
-                <div class="badge">A2</div>
-                <h3>Англійська для початківців</h3>
-                <p>Зроби перші кроки у вивченні англійської. Pre-Intermediate</p>
-                <p class="price">Ціна: 300 грн</p>
-                <button class="start-btn">Почати курс</button>
-                <details class="material-popup">
-                    <summary>Переглянути матеріали</summary>
-                    <div class="popup-inner">
-                        <div class="media-block"><h4>🎬 Відео</h4><video controls src="a2-v.mp4"></video></div>
-                        <div class="media-block"><h4>🎧 Аудіо</h4><audio controls src="a2-a.mp3"></audio></div>
-                        <div class="media-block"><h4>📄 Текст</h4><p>Минулі часи та лексика подорожей.</p></div>
-                    </div>
-                </details>
-            </article>
+            <h2>Курси англійської</h2>
+            <div class="lessons-grid" id="en-grid">
+            </div>
 
-            <article class="lesson-card">
-                <div class="badge">B1</div>
-                <h3>Розмовна англійська</h3>
-                <p>Говори сміливо та впевнено. Intermediate<br><br></p>
-                <p class="price">Ціна: 400 грн</p>
-                <button class="start-btn">Почати курс</button>
-                <details class="material-popup">
-                    <summary>Переглянути матеріали</summary>
-                    <div class="popup-inner">
-                        <div class="media-block"><h4>🎬 Відео</h4><video controls src="b1-v.mp4"></video></div>
-                        <div class="media-block"><h4>🎧 Аудіо</h4><audio controls src="b1-a.mp3"></audio></div>
-                        <div class="media-block"><h4>📄 Текст</h4><p>Стратегії ведення дискусії.</p></div>
-                    </div>
-                </details>
-            </article>
+            <div class="no-results">Нічого не знайдено</div>
 
-            <article class="lesson-card">
-                <div class="badge">B2</div>
-                <h3>Середній рівень</h3>
-                <p>Дізнайся true English не з чуток. Upper-Intermediate</p>
-                <p class="price">Ціна: 450 грн</p>
-                <button class="start-btn">Почати курс</button>
-                <details class="material-popup">
-                    <summary>Переглянути матеріали</summary>
-                    <div class="popup-inner">
-                        <div class="media-block"><h4>🎬 Відео</h4><video controls src="b2-v.mp4"></video></div>
-                        <div class="media-block"><h4>🎧 Аудіо</h4><audio controls src="b2-a.mp3"></audio></div>
-                        <div class="media-block"><h4>📄 Текст</h4><p>Ідіоми та фразові дієслова.</p></div>
-                    </div>
-                </details>
-            </article>
-
-            <article class="lesson-card">
-                <div class="badge">C1</div>
-                <h3>Преміум</h3>
-                <p>Високий рівень Advanced відкриває нові горизонти</p>
-                <p class="price">Ціна: 600 грн</p>
-                <button class="start-btn">Почати курс</button>
-                <details class="material-popup">
-                    <summary>Переглянути матеріали</summary>
-                    <div class="popup-inner">
-                        <div class="media-block"><h4>🎬 Відео</h4><video controls src="c1-v.mp4"></video></div>
-                        <div class="media-block"><h4>🎧 Аудіо</h4><audio controls src="c1-a.mp3"></audio></div>
-                        <div class="media-block"><h4>📄 Текст</h4><p>Академічне письмо та складна граматика.</p></div>
-                    </div>
-                </details>
-            </article>
-        </div>
+        </section>
 
         <section class="practice-section">
-        <br><br><h2>Курси французької</h2>
-         <div class="lessons-grid">
-            <article class="lesson-card">
-                <div class="badge">A1</div>
-                <h3>Початковий рівень (Débutant)</h3>
-                <p>Дізнайся true English не з чуток. Upper-Intermediate (B2)</p>
-                <p class="price">Ціна: 450 грн</p>
-                <button class="start-btn">Почати курс</button>
-                <details class="material-popup">
-                    <summary>Переглянути матеріали</summary>
-                    <div class="popup-inner">
-                        <div class="media-block"><h4>🎬 Відео</h4><video controls src="b2-v.mp4"></video></div>
-                        <div class="media-block"><h4>🎧 Аудіо</h4><audio controls src="b2-a.mp3"></audio></div>
-                        <div class="media-block"><h4>📄 Текст</h4><p>Ідіоми та фразові дієслова.</p></div>
-                    </div>
-                </details>
-            </article>
-
-            <article class="lesson-card">
-                <div class="badge">A2</div>
-                <h3>Базовий рівень (Élémentaire)</h3>
-                <p>Дізнайся true English не з чуток. Upper-Intermediate (B2)</p>
-                <p class="price">Ціна: 450 грн</p>
-                <button class="start-btn">Почати курс</button>
-                <details class="material-popup">
-                    <summary>Переглянути матеріали</summary>
-                    <div class="popup-inner">
-                        <div class="media-block"><h4>🎬 Відео</h4><video controls src="b2-v.mp4"></video></div>
-                        <div class="media-block"><h4>🎧 Аудіо</h4><audio controls src="b2-a.mp3"></audio></div>
-                        <div class="media-block"><h4>📄 Текст</h4><p>Ідіоми та фразові дієслова.</p></div>
-                    </div>
-                </details>
-            </article>
-
-            <article class="lesson-card">
-                <div class="badge">B1</div>
-                <h3>Середній рівень (Intermédiaire)</h3>
-                <p>Дізнайся true English не з чуток. Upper-Intermediate </p>
-                <p class="price">Ціна: 450 грн</p>
-                <button class="start-btn">Почати курс</button>
-                <details class="material-popup">
-                    <summary>Переглянути матеріали</summary>
-                    <div class="popup-inner">
-                        <div class="media-block"><h4>🎬 Відео</h4><video controls src="b2-v.mp4"></video></div>
-                        <div class="media-block"><h4>🎧 Аудіо</h4><audio controls src="b2-a.mp3"></audio></div>
-                        <div class="media-block"><h4>📄 Текст</h4><p>Ідіоми та фразові дієслова.</p></div>
-                    </div>
-                </details>
-            </article>
+            <br><br>
+            <h2>Курси французької</h2>
+            <div class="lessons-grid" id="fr-grid">
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -197,6 +81,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="comands.js"></script>
     <script src="animation.js"></script>
 </body>
 </html>
