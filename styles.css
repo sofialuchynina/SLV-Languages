@@ -1021,6 +1021,206 @@ nav ul li a:hover::after {
     }
 }
 
+@media (max-height: 500px) and (orientation: landscape) {
+
+    header {
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        min-height: unset;
+        height: auto;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    header h1 {
+        font-size: 32px !important;
+        margin-left: 10px !important;
+        text-align: left;
+        line-height: 1;
+        flex: 1 1 auto;
+        order: -1;
+    }
+
+    header p {
+        font-size: 13px;
+        margin-left: 10px !important;
+        max-width: 80%;
+        text-align: left;
+        padding: 0;
+        width: 100%;
+    }
+
+    header img {
+        position: static;
+        width: 150px;
+        height: auto;
+        margin: 0 10px 0 0;
+        flex-shrink: 0;
+    }
+
+    .classes-header,
+    .progress-header,
+    .practice-header {
+        padding: 10px 20px;
+        min-height: 140px;
+        height: auto;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .classes-header h1,
+    .progress-header h1,
+    .practice-header h1 {
+        font-size: 24px;
+        margin: 0 0 6px 0;
+    }
+
+    .classes-header img,
+    .progress-header img,
+    .practice-header img {
+        position: static;
+        width: 50px;
+        height: auto;
+        margin: 0 auto 6px auto;
+        order: -1;
+    }
+
+    .classes-header nav,
+    .progress-header nav,
+    .practice-header nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: auto;
+    }
+
+    nav ul li a {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+        display: inline-block;
+        width: auto;
+    }
+
+    .lessons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .practice-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .stats-row {
+        flex-direction: row;
+    }
+
+    .lesson-card {
+        padding: 15px;
+    }
+
+    .progress-card {
+        padding: 16px;
+    }
+
+    section h2 {
+        font-size: 18px;
+        margin-left: 20px;
+    }
+
+    .container {
+        margin: 20px auto;
+        padding: 0 16px;
+    }
+
+    .advantages {
+        margin: 20px 20px;
+        padding-left: 20px;
+    }
+
+    .advantages li {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+
+    .advantages li span {
+        font-size: 13px;
+    }
+
+    .chat-box {
+        height: 130px;
+    }
+
+    .footer-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    footer {
+        padding: 20px 0;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .footer-right {
+        text-align: right;
+    }
+
+    .lesson-card:hover {
+        transform: translateY(0) scale(1);
+    }
+
+    .start-btn:hover {
+        animation: none;
+    }
+
+    .filter-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .filter-item {
+        flex: 1 1 180px;
+    }
+
+    .reset-btn {
+        flex: 0 0 auto;
+        align-self: flex-end;
+        min-height: 40px;
+    }
+}
+
 @media (max-width: 480px) {
 
     header {
