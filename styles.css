@@ -843,7 +843,6 @@ nav ul li a:hover::after {
 .view-completed-btnn,
 .view-completed-btn{
     width: 100%;
-    max-width: 350px;
     margin: 20px auto 0 auto;
     display: block;
 }
