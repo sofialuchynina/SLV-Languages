@@ -1395,7 +1395,6 @@ nav ul li a:hover::after {
     .view-completed-btnn {
         flex: 0 0 auto;
         align-self: flex-start;
-        min-height: 40px;
     }
 }
 
