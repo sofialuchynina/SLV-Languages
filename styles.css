@@ -1392,9 +1392,26 @@ nav ul li a:hover::after {
         flex: 1 1 180px;
     }
 
-    .view-completed-btn {
+    .view-completed-btnn {
         flex: 0 0 auto;
         align-self: flex-start;
         min-height: 40px;
     }
+}
+
+.view-completed-btnn {
+    background:#610126; 
+    color: white;
+    margin-left:580px;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
